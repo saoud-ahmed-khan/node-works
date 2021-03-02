@@ -7,6 +7,7 @@ const app=express();
 const router = express.Router();
 
 router.get("/" ,usercontroller.getusers);
-router.get("/:id", usercontroller.getuserbyid);
+router.post("/signup" ,usercontroller.signupUser);
+
 
 exports.userRouter=app.use('/user', router);
