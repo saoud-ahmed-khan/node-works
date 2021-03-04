@@ -1,18 +1,14 @@
 const { UserModal } = require("../model");
 const bcript = require("bcrypt");
-const e = require("express");
 
 exports.getusers = async (req, res) => {
   res.json({ success: true, message: "user route works" });
 };
 
-exports.getuserbyid = async (req, res) => {
-  let { id } = req.params;
-  res.json({ success: true, userrid: `user req id:${id}` });
-};
+
 
 exports.signupUser = async (req, res) => {
-  const { UserName, Password } = req.body;
+  const { UserName , Password } = req.body;
 
   if (!UserName || !Password) {
     return res
@@ -34,8 +30,6 @@ exports.signupUser = async (req, res) => {
         success :true,
         User: createUser,
         message: "data save successfuly"
-
-
     });
   } catch (error) {
       console.log(error.message);
